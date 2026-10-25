@@ -36,27 +36,32 @@
             max-width: 600px;
         }
 
-        /* Cabecera minimalista */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             padding-top: 10px;
         }
 
         header h1 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--primary);
             letter-spacing: -0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
+        }
+
+        header .event-date {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 4px;
         }
 
         header p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
-        /* Menú de navegación minimalista tipo pestañas suaves */
         .nav-tabs {
             display: flex;
             background: #f0ece6;
@@ -93,7 +98,6 @@
             display: block;
         }
 
-        /* Tarjetas */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -104,22 +108,40 @@
         }
 
         h2 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* Listados limpios */
+        p.intro-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .curiosity-box {
+            background: #fdfbf7;
+            border-left: 3px solid var(--accent);
+            padding: 10px 12px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.4;
+        }
+
         .minimal-list-item {
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 0.9rem;
         }
 
         .minimal-list-item:last-child {
@@ -128,36 +150,35 @@
 
         .wine-title {
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .wine-subtitle {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
             margin-top: 2px;
         }
 
-        /* Formularios minimalistas */
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 10px 12px;
+            padding: 9px 11px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             background: #faf9f8;
             color: var(--text-main);
             outline: none;
@@ -174,9 +195,9 @@
             color: white;
             border: none;
             width: 100%;
-            padding: 12px;
+            padding: 11px;
             border-radius: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: opacity 0.2s;
@@ -186,23 +207,41 @@
             opacity: 0.9;
         }
 
+        button.btn-reset {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: opacity 0.2s;
+        }
+
+        button.btn-reset:hover {
+            opacity: 0.9;
+        }
+
         .btn-delete {
             background: transparent;
             border: none;
             color: #d9534f;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             cursor: pointer;
             padding: 4px 8px;
         }
 
         .score-preview {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--accent);
-            margin: 15px 0;
+            margin: 12px 0;
             background: #fdfbf7;
-            padding: 10px;
+            padding: 8px;
             border-radius: 8px;
             border: 1px dashed var(--accent);
         }
@@ -212,7 +251,8 @@
 
     <div class="container">
         <header>
-            <h1>🍷 Cata de Vinos</h1>
+            <h1>🍷 Cata de Vinos Casera</h1>
+            <div class="event-date">📅 07 / 11 / 2027</div>
             <p>Ximena, Fiorella, Raquel & Diego</p>
         </header>
 
@@ -223,20 +263,27 @@
             <button onclick="switchTab('gestion', event)">Vinos</button>
         </div>
 
-        <!-- PÁGINA 1: PORTADA & ESTADÍSTICAS -->
+        <!-- PÁGINA 1: PORTADA, INTRODUCCIÓN Y CURIOSIDADES DINÁMICAS -->
         <div id="portada" class="tab-content active">
             <div class="card">
-                <h2>📊 Resumen y Ranking</h2>
-                <div id="home-ranking">
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Aún no hay puntuaciones registradas. ¡Realiza la primera cata en la pestaña 'Ficha'!</p>
+                <h2>✨ Bienvenidos a la Cata</h2>
+                <p class="intro-text">
+                    Bienvenidos a una experiencia diseñada para disfrutar con los cinco sentidos. En esta cata exploraremos las características únicas de nuestra selección, evaluando cada matiz en fase visual, olfativa y gustativa para descubrir en equipo cuál se corona como el favorito de la noche.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>🍇 Origen y Curiosidades del Terroir</h2>
+                <div id="dynamic-curiosities">
+                    <!-- Se rellena dinámicamente según los vinos añadidos -->
                 </div>
             </div>
 
             <div class="card">
-                <h2>🧀 Maridaje Recomendado</h2>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-                    Mantén a mano agua y pan neutro para limpiar el paladar entre vino y vino. Combina los blancos con quesos suaves y los tintos con embutidos o curados.
-                </p>
+                <h2>📊 Ranking de Favoritos</h2>
+                <div id="home-ranking">
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Aún no hay puntuaciones registradas. ¡Realiza la primera cata en la pestaña 'Ficha'!</p>
+                </div>
             </div>
         </div>
 
@@ -277,7 +324,7 @@
             </div>
         </div>
 
-        <!-- PÁGINA 3: GESTIÓN DE VINOS (Añadir / Eliminar) -->
+        <!-- PÁGINA 3: GESTIÓN DE VINOS Y RESET -->
         <div id="gestion" class="tab-content">
             <div class="card">
                 <h2>🍇 Listado de Vinos Actuales</h2>
@@ -289,36 +336,47 @@
                 <form id="add-wine-form" onsubmit="addWine(event)">
                     <div class="form-group">
                         <label>Nombre / Bodega</label>
-                        <input type="text" id="new-name" placeholder="Ej. Albariño D.O." required>
+                        <input type="text" id="new-name" placeholder="Ej. Albariño de Rías Baixas" required>
                     </div>
                     <div class="form-group">
-                        <label>Tipo</label>
+                        <label>Tipo de Vino</label>
                         <select id="new-type">
-                            <option value="Blanco">Blanco</option>
-                            <option value="Tinto Joven">Tinto Joven</option>
-                            <option value="Tinto Crianza">Tinto Crianza</option>
-                            <option value="Espumoso">Espumoso</option>
+                            <option value="Vino blanco">Vino blanco</option>
+                            <option value="Vino tinto">Vino tinto</option>
+                            <option value="Vino rosado">Vino rosado</option>
+                            <option value="Espumoso">Espumoso / Cava</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Notas clave</label>
-                        <input type="text" id="new-notes" placeholder="Ej. Frutal, fresco" required>
+                        <label>Procedencia / D.O. (Lugar)</label>
+                        <input type="text" id="new-origin" placeholder="Ej. Rías Baixas, Galicia" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Curiosidad del sitio y su influencia</label>
+                        <input type="text" id="new-curiosity" placeholder="Ej. Clima atlántico y suelos graníticos que aportan gran frescor." required>
                     </div>
                     <button type="submit" class="btn-main">Añadir a la Cata</button>
                 </form>
+            </div>
+
+            <div class="card">
+                <h2>⚙️ Opciones de Pruebas</h2>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">
+                    Utiliza este botón para borrar las puntuaciones de prueba acumuladas antes del día oficial de la cata.
+                </p>
+                <button type="button" class="btn-reset" onclick="resetData()">Borrar Datos de Pruebas</button>
             </div>
         </div>
     </div>
 
     <script>
-        let wines = JSON.parse(localStorage.getItem('catas_vinos_v2')) || [
-            { id: 1, name: "Albariño / Verdejo", type: "Blanco", notes: "Cítricos y fresco" },
-            { id: 2, name: "Tinto Joven", type: "Tinto Joven", notes: "Frutos rojos" },
-            { id: 3, name: "Tinto Crianza", type: "Tinto Crianza", notes: "Madera y especias" },
-            { id: 4, name: "Cava / Espumoso", type: "Espumoso", notes: "Burbuja elegante" }
+        let wines = JSON.parse(localStorage.getItem('catas_vinos_v4')) || [
+            { id: 1, name: "Albariño Tradicional", type: "Vino blanco", origin: "Rías Baixas (Galicia)", curiosity: "Cultivado bajo influencia atlántica directa, lo que aporta una acidez viva y notas minerales muy característicos." },
+            { id: 2, name: "Tinto Joven Roble", type: "Vino tinto", origin: "Ribera del Duero", curiosity: "Altitud y amplitud térmica extrema que concentran los aromas frutales y la estructura tánica." },
+            { id: 3, name: "Rosado de Garnacha", type: "Vino rosado", origin: "Navarra", curiosity: "Suelos arcillo-calcáreos que realzan la finura aromática y la ligereza en boca." }
         ];
 
-        let scores = JSON.parse(localStorage.getItem('catas_scores_v2')) || [];
+        let scores = JSON.parse(localStorage.getItem('catas_scores_v4')) || [];
 
         function switchTab(tabId, e) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -329,6 +387,7 @@
 
             if(tabId === 'portada') {
                 updateStats();
+                renderCuriosities();
             }
         }
 
@@ -340,7 +399,7 @@
             select.innerHTML = '';
 
             if(wines.length === 0) {
-                mgmtList.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">No hay vinos registrados.</p>';
+                mgmtList.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem;">No hay vinos registrados.</p>';
             }
 
             wines.forEach(wine => {
@@ -348,32 +407,62 @@
                     <div class="minimal-list-item">
                         <div>
                             <div class="wine-title">${wine.name}</div>
-                            <div class="wine-subtitle">${wine.type} · ${wine.notes}</div>
+                            <div class="wine-subtitle">${wine.type} · ${wine.origin}</div>
                         </div>
                         <button class="btn-delete" onclick="deleteWine(${wine.id})">Eliminar</button>
                     </div>
                 `;
-                select.innerHTML += `<option value="${wine.name}">${wine.name}</option>`;
+                select.innerHTML += `<option value="${wine.name}">${wine.name} (${wine.type})</option>`;
             });
 
-            localStorage.setItem('catas_vinos_v2', JSON.stringify(wines));
+            localStorage.setItem('catas_vinos_v4', JSON.stringify(wines));
             updateStats();
+            renderCuriosities();
+        }
+
+        function renderCuriosities() {
+            const container = document.getElementById('dynamic-curiosities');
+            container.innerHTML = '';
+
+            if(wines.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem;">No hay vinos añadidos para mostrar curiosidades.</p>';
+                return;
+            }
+
+            wines.forEach(wine => {
+                container.innerHTML += `
+                    <div class="curiosity-box">
+                        <strong>${wine.name} (${wine.type}) — <em>${wine.origin}</em>:</strong> ${wine.curiosity}
+                    </div>
+                `;
+            });
         }
 
         function addWine(e) {
             e.preventDefault();
             const name = document.getElementById('new-name').value;
             const type = document.getElementById('new-type').value;
-            const notes = document.getElementById('new-notes').value;
+            const origin = document.getElementById('new-origin').value;
+            const curiosity = document.getElementById('new-curiosity').value;
 
-            wines.push({ id: Date.now(), name, type, notes });
+            wines.push({ id: Date.now(), name, type, origin, curiosity });
             renderAll();
             document.getElementById('add-wine-form').reset();
+            alert('¡Vino añadido correctamente!');
         }
 
         function deleteWine(id) {
             wines = wines.filter(w => w.id !== id);
             renderAll();
+        }
+
+        function resetData() {
+            if(confirm('¿Seguro que quieres borrar todas las puntuaciones de prueba?')) {
+                scores = [];
+                localStorage.removeItem('catas_scores_v4');
+                updateStats();
+                alert('¡Datos de prueba reseteados con éxito!');
+            }
         }
 
         function calculateTotal() {
@@ -391,17 +480,17 @@
             const comments = document.getElementById('score-comments').value;
 
             scores.push({ evaluator, wine, total, comments });
-            localStorage.setItem('catas_scores_v2', JSON.stringify(scores));
+            localStorage.setItem('catas_scores_v4', JSON.stringify(scores));
 
             document.getElementById('scoring-form').reset();
             calculateTotal();
-            alert('¡Valoración guardada!');
+            alert('¡Valoración guardada con éxito!');
         }
 
         function updateStats() {
             const homeRanking = document.getElementById('home-ranking');
             if(scores.length === 0) {
-                homeRanking.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">Aún no hay valoraciones registradas. ¡Puntúa en la pestaña de Ficha!</p>';
+                homeRanking.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem;">Aún no hay valoraciones registradas. ¡Puntúa en la pestaña de Ficha!</p>';
                 return;
             }
 
